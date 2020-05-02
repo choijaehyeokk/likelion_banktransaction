@@ -39,3 +39,5 @@ while(True):
         sys.exit()
     else:
         print("제공되지 않는 기능입니다. 다시 골라주세요")
+
+print("Hello world")
