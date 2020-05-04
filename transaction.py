@@ -39,7 +39,6 @@ def deposit():
         print("=====================\n")
 
 def withdraw():
-    print("======출금하기======")
     print("\n======출금하기======")
 
     withdraw_account = input("출금하실 계좌번호를 입력하세요:")
@@ -50,17 +49,12 @@ def withdraw():
             withdraw_money = int(input("출금하실 금액을 입력해주세요:"))
             person.money -= withdraw_money
             if person.money < 0:
-                break
-            print("##계좌잔고:",person.money,"원##")
-            print("##출금이 완료되었습니다.##")
-            break
                 print("계좌잔액이 부족합니다")
                 print("=====================")                
                 person.money += withdraw_money
                 break
             print("##계좌잔고:",person.money,"원##")
             print("##출금이 완료되었습니다.##")
-            print("=====================\n")
             break
     if withdraw_account != person.accountnum:
         print("출금하실 계좌가 없습니다.")
