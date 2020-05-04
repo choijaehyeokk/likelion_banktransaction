@@ -1,7 +1,7 @@
+from Likelionperson import Person
 persons = []
-from Perseon .import person
 
-class account(person):    
+class Account(Person):    
     def __init__(self):
         print("\n======계좌개설======")
         print("계좌번호:")
@@ -71,7 +71,7 @@ while(True):
 
     a = input("어떤 업무를 수행하시겠습니까?")
     if a == '1':
-        newaccount = account()
+        newaccount = Account()
         persons.append(newaccount)
     elif a== '2':
         deposit()
