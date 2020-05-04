@@ -4,7 +4,7 @@ persons = []
 
 class account:    
     def __init__(self):
-        print("======계좌개설======")
+        print("\n======계좌개설======")
         print("계좌번호:")
         self.accountnum = input()
         print("이름:")
@@ -13,15 +13,16 @@ class account:
         self.money = int(input())
         total_money = self.money
         print("##계좌개설을 완료하였습니다##")
+        print("=====================\n")
 
 def lookup():
-    print("======전체조회======")
+    print("\n======전체조회======")
     for person in persons:
         print("계좌번호:",person.accountnum,"/","이름:",person.name,"/","잔액",person.money,"원","/")
-    print("===================")
+    print("===================\n")
 
 def deposit():
-    print("======입금하기======")
+    print("\n======입금하기======")
     deposit_account = input("입금하실 계좌번호를 입력하세요:")
     for person in persons:
         if person.accountnum == deposit_account:
@@ -31,13 +32,34 @@ def deposit():
             person.money += deposit_money
             print("##계좌잔고:",person.money,"원##")
             print("##입금이 완료되었습니다.##")
+            print("=====================\n")
             break
+    if deposit_account != person.accountnum:
+        print("입금하실 계좌가 없습니다.")
+        print("=====================\n")
 
 def withdraw():
-    ##우석님 출금하는 함수 입니다.! :)
-    ##deposit하는 함수와 비슷하니 참고하세요~
-    return 0
-    
+    print("\n======출금하기======")
+    withdraw_account = input("출금하실 계좌번호를 입력하세요:")
+    for person in persons:
+        if person.accountnum == withdraw_account:
+            print("계좌이름:",person.name)
+            print("계좌잔고:",person.money,"원")
+            withdraw_money = int(input("출금하실 금액을 입력해주세요:"))
+            person.money -= withdraw_money
+            if person.money < 0:
+                print("계좌잔액이 부족합니다")
+                print("=====================")                
+                person.money += withdraw_money
+                break
+            print("##계좌잔고:",person.money,"원##")
+            print("##출금이 완료되었습니다.##")
+            print("=====================\n")
+            break
+    if withdraw_account != person.accountnum:
+        print("출금하실 계좌가 없습니다.")
+        print("=====================\n")
+        
 while(True):
     print("======Bank Menu======")
     print("1. 계좌개설")
@@ -45,20 +67,20 @@ while(True):
     print("3. 출금하기")
     print("4. 전체조회")
     print("5. 프로그램 종료")
-    print("=====================")
+    print("=====================\n")
 
-    a = input()
+    a = input("어떤 업무를 수행하시겠습니까?")
     if a == '1':
         newaccount = account()
         persons.append(newaccount)
     elif a== '2':
         deposit()
-    ##elif a == '3':
-    
+    elif a == '3':
+        withdraw()
     elif a=='4':
         lookup()
     elif a == '5':
-        print("##은행프로그램을 종료합니다.##")
+        print("\n##은행프로그램을 종료합니다.##\n")
         sys.exit()
     else:
         print("제공되지 않는 기능입니다. 다시 골라주세요")
