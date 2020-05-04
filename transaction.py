@@ -34,10 +34,21 @@ def deposit():
             break
 
 def withdraw():
-    ##우석님 출금하는 함수 입니다.! :)
-    ##deposit하는 함수와 비슷하니 참고하세요~
-    return 0
-    
+    print("======출금하기======")
+    withdraw_account = input("출금하실 계좌번호를 입력하세요:")
+    for person in persons:
+        if person.accountnum == withdraw_account:
+            print("계좌이름:",person.name)
+            print("계좌잔고:",person.money,"원")
+            withdraw_money = int(input("출금하실 금액을 입력해주세요:"))
+            person.money -= withdraw_money
+            if person.money < 0:
+                break
+            print("##계좌잔고:",person.money,"원##")
+            print("##출금이 완료되었습니다.##")
+            break
+
+
 while(True):
     print("======Bank Menu======")
     print("1. 계좌개설")
@@ -53,8 +64,8 @@ while(True):
         persons.append(newaccount)
     elif a== '2':
         deposit()
-    ##elif a == '3':
-    
+    elif a == '3':
+        withdraw()
     elif a=='4':
         lookup()
     elif a == '5':
