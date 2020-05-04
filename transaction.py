@@ -1,8 +1,10 @@
-import sys
-
 persons = []
+class person :
+    name = '이름'
+    accountnum = '계좌번호'
+    money = 0
 
-class account:    
+class account(person):    
     def __init__(self):
         print("\n======계좌개설======")
         print("계좌번호:")
@@ -82,7 +84,7 @@ while(True):
         lookup()
     elif a == '5':
         print("\n##은행프로그램을 종료합니다.##\n")
-        sys.exit()
+        break
     else:
         print("제공되지 않는 기능입니다. 다시 골라주세요")
 
