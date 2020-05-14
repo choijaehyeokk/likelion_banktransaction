@@ -87,28 +87,32 @@ def deposit_interest():
             return 2
 
 def transfer():
-    print("\n======이체하기======")
+    print("\n======송금하기======")
 
-    transfer_account = int(input("본인 계좌번호를 입력하세요:"))
+    a = ''
+    b = ''
+    transfer_account = input("본인 계좌번호를 입력하세요:")
     if not persons:
-        print("개설된 계좌가 없습니다.\n")
-        break
-    a = person
+        return 1
+    for person in persons:
+            if person.accountnum == transfer_account:
+                b = person
 
-    receive_account = int(input("받을 계좌번호를 입력하세요:"))
-    if not persons:
-        print("개설된 계좌가 없습니다.\n")
-        break
+    receive_account = input("받을 계좌번호를 입력하세요:")
+    for person in persons:
+            if person.accountnum == receive_account:
+                a = person
+    if a == '':
+        return 2
 
     t_money = int(input("이체할 금액을 입력하세요:"))
 
-            person.money += t_money
-            a.money -= t_money
+    a.money += t_money
+    b.money -= t_money
 
-            print("##본인 계좌잔고:", a.money, "원##")
-            print("##이체한 계좌잔고:", person.money, "원##")
-            print("##이체가 완료되었습니다.##")
-    break
+    print("##본인 계좌잔고:", b.money, "원##")
+    print("##이체한 계좌잔고:", a.money, "원##")
+    return 0
 
 
 while(True):
@@ -145,8 +149,15 @@ while(True):
             print("잘못된 입력입니다.")
         else:
             print("세전 %.2f 원입니다." %result)
-    elif a =='7'
-        transfer()
+    elif a =='7':
+        result = transfer()
+        if result == 1:
+            print("개설된 계좌가 없습니다.\n")
+        elif result == 2:
+            print("송금받으실 계좌가 없습니다.\n")
+        elif result == 0:
+            print("##이체가 완료되었습니다.##")
+            
     else:
         print("제공되지 않는 기능입니다. 다시 골라주세요")
 
