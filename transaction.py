@@ -85,6 +85,32 @@ def deposit_interest():
             return round(fv,2)
         else:
             return 2
+
+def transfer():
+    print("\n======이체하기======")
+
+    transfer_account = int(input("본인 계좌번호를 입력하세요:"))
+    if not persons:
+        print("개설된 계좌가 없습니다.\n")
+        break
+    a = person
+
+    receive_account = int(input("받을 계좌번호를 입력하세요:"))
+    if not persons:
+        print("개설된 계좌가 없습니다.\n")
+        break
+
+    t_money = int(input("이체할 금액을 입력하세요:"))
+
+            person.money += t_money
+            a.money -= t_money
+
+            print("##본인 계좌잔고:", a.money, "원##")
+            print("##이체한 계좌잔고:", person.money, "원##")
+            print("##이체가 완료되었습니다.##")
+    break
+
+
 while(True):
     print("======Bank Menu======")
     print("1. 계좌개설")
@@ -93,6 +119,7 @@ while(True):
     print("4. 전체조회")
     print("5. 프로그램 종료")
     print("6. 예금 연이자 계산하기")
+    print("7. 이체하기")
     print("=====================\n")
 
     a = input("어떤 업무를 수행하시겠습니까?")
@@ -118,6 +145,8 @@ while(True):
             print("잘못된 입력입니다.")
         else:
             print("세전 %.2f 원입니다." %result)
+    elif a =='7'
+        transfer()
     else:
         print("제공되지 않는 기능입니다. 다시 골라주세요")
 
