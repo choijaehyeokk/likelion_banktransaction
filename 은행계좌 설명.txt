@@ -1,0 +1,46 @@
+int main (void) 
+메인 함수 지정해서 시작인데
+
+파이썬은 그런게 없다
+컴퓨터가 한줄한줄씩 이해한다
+
+import sys  - sys라는 박스를 를 쓰겠다, 시스템에 접근하겠다. 하드웨어를 제어하고싶을 때 사용.
+sys exit() 하나쓰려고 가져온거다. 프로그램을 종료하는 기능
+
+persons = []
+빈 list를 만든다, 그 이름이 persons
+
+class account :
+
+class는 붕어빵 틀, class account, account라는 틀을 만들꺼다
+account가 붕어빵,
+
+__init__  생성자, 
+account() - __init__ 함수가 호출됨
+
+계좌번호 : 뜨고 깜빡깜빡 입력하고 엔터 그럼 self.accountnum으로 들어감
+
+self.accountnum self는 나의 계좌번호를 이걸로하라
+
+int(input()) 인풋내용이 문자인데 숫자로 바꾼다
+
+for person in persons - 
+
+print
+"계좌번호: ", person.accountnum
+
+
+계좌 잔고가 -면 안된다
+조건을 넣어서 만약에 0보다 작으면 
+break걸고
+while로 가게해라
+
+
+패키지 - 어떤 기능을 구현하는 모듈들의 합
+모듈 - 코드가 들어있는 파일
+
+내가 패키지 만듦-공유가능
+add folder해야댐
+폴더이름=페키지이름
+패키지안에 모듈만들자 모듈안에 class를 만들자 class안에 함수def만들자
+from animal import dog - 애너멀 패키지에서 도그라는 모듈갖고와줘
